@@ -21,6 +21,9 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+function identity(value){
+    return value;
+}
 
 /** _.typeOf
 * Arguments:
@@ -41,7 +44,17 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+function typeOf(value) {
+    if (Array.isArray(value)){
+        return "array"//check if the value is an array
+    } else if (value === null) {
+        return "null";//check if value is null
+    } else if (typeof value === "object") {
+        return "object";//Objects that are not arrays or null
+    } else {
+        return typeof value;//for all the other types (strings, number, boolean, function, undefined)
+    }
+}
 
 /** _.first
 * Arguments:
@@ -60,6 +73,18 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+function FinalizationRegistry(array,number) {
+    //Check if the input is an array; if not, return an empty arrat
+    if (!Array.isArray(array)) {
+        return [];
+    }
+    //If 'number' is not provided ort is not a number, return just the first element
+    if (typeof number !== 'number') {
+        return [];
+    //Return the first number items of array, handling cases where number > array.length
+    }
+    return array.slice(0, number);
+ }
 
 
 /** _.last
@@ -79,7 +104,17 @@ var _ = {};
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+function last(array,number){
+ //check if the input is an array; if not, return an empty array
+  if (!Array.isArray(array)) {   
+  return [];
+  }
+}
+ //iF number is not provided or is not a number, return the last element
+    if (typeof number !== 'number') {
+        return array[array.length - 1];
+    }
+   //if number is negative, return an empty array 
 
 /** _.indexOf
 * Arguments:
