@@ -115,6 +115,14 @@ function last(array,number){
         return array[array.length - 1];
     }
    //if number is negative, return an empty array 
+   if (number < 0) {
+    return [];
+   }
+   //if number is greater than the array length, return the array
+   if (number > array.length) {
+    return array;
+   }
+   //
 
 /** _.indexOf
 * Arguments:
@@ -147,7 +155,16 @@ function last(array,number){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+ function indexOf(array,value){
+    //loop through each element in the array
+    for (let i=0; i< array.length; i++) {
+        //Check if the current element is equal to the value we're looking for
+        if (array[i] === value) {
+            return i; //return the index of the first occurence
+        }
+    }
+    return -1;
+ }
 
 /** _.each
 * Arguments:
